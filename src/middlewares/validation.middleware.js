@@ -19,9 +19,9 @@ const validateRequest = async (
       .withMessage(
         'Price should be a positive value'
       ),
-    body('imageUrl')
-      .isURL()
-      .withMessage('Invalid url'),
+    // body('imageUrl')
+    //   .isURL()
+    //   .withMessage('Invalid url'),
   ];
 
   // 2. run those rules.

@@ -3,6 +3,7 @@ import ProductsController from './src/controllers/product.controller.js';
 import ejsLayouts from 'express-ejs-layouts';
 import path from 'path';
 import validationMiddleware from './src/middlewares/validation.middleware.js';
+import { uploadFile } from './src/middlewares/file-upload.middleware.js';
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.post(
 app.post(
   '/',
   validationMiddleware,
+  uploadFile.single('imageUrl'),
   productsController.postAddProduct
 );
 
