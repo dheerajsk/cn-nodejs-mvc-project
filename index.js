@@ -22,14 +22,21 @@ app.get(
   '/add-product',
   productsController.getAddProduct
 );
+
 app.get(
-  '/update-product',
+  '/update-product/:id',
   productsController.getUpdateProductView
 );
+
 app.post(
   '/',
   validationMiddleware,
   productsController.postAddProduct
+);
+
+app.post(
+  '/update-product',
+  productsController.postUpdateProduct
 );
 
 app.listen(3000, () => {
