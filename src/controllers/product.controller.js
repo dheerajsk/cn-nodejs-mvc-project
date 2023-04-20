@@ -1,20 +1,20 @@
-import Product from '../models/product.model.js';
+import ProductModel from '../models/product.model.js';
 
 class ProductsController {
+  getProducts(req, res, next) {
+    var products = ProductModel.getAll();
+    res.render('index', { products });
+  }
 
-    getProducts(req, res, next) {
-        var products = Product.getAll();
-        res.render('index', { products });
-    }
+  getAddProduct(req, res, next) {
+    res.render('new-product');
+  }
 
-    getAddProduct(req, res, next) {
-        res.render('new-product');
-    }
-
-    postAddProduct(req, res, next) {
-        console.log(req.body)
-        res.redirect('/');
-    }
+  postAddProduct(req, res, next) {
+    ProductModel.add(req.body);
+    var products = ProductModel.getAll();
+    res.render('index', { products });
+  }
 }
 
-export default ProductsController
+export default ProductsController;
