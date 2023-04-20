@@ -28,6 +28,11 @@ app.get(
   productsController.getUpdateProductView
 );
 
+app.get(
+  '/delete-product/:id',
+  productsController.deleteProduct
+);
+
 app.post(
   '/',
   validationMiddleware,
