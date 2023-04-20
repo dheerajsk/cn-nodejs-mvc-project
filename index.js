@@ -5,6 +5,9 @@ import path from 'path';
 import validationMiddleware from './src/middlewares/validation.middleware.js';
 
 const app = express();
+
+app.use(express.static('public'));
+
 const productsController =
   new ProductsController();
 
@@ -28,7 +31,7 @@ app.get(
   productsController.getUpdateProductView
 );
 
-app.get(
+app.post(
   '/delete-product/:id',
   productsController.deleteProduct
 );
