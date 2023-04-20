@@ -12,7 +12,7 @@ const validateRequest = async (
   // 1. Setup rules for validation.
   const rules = [
     body('name')
-      .isEmpty()
+      .notEmpty()
       .withMessage('Name is required'),
     body('price')
       .isFloat({ gt: 0 })
