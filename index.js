@@ -39,8 +39,8 @@ app.post(
 
 app.post(
   '/',
-  validationMiddleware,
   uploadFile.single('imageUrl'),
+  validationMiddleware,
   productsController.postAddProduct
 );
 
