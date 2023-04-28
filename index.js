@@ -24,6 +24,12 @@ app.set(
 );
 
 app.get('/register', usersController.getRegister);
+app.get('/login', usersController.getLogin);
+app.post('/login', usersController.postLogin);
+app.post(
+  '/register',
+  usersController.postRegister
+);
 app.get('/', productsController.getProducts);
 app.get(
   '/add-product',
