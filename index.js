@@ -36,6 +36,7 @@ app.set(
 app.get('/register', usersController.getRegister);
 app.get('/login', usersController.getLogin);
 app.post('/login', usersController.postLogin);
+app.get('/logout', usersController.logout);
 app.post(
   '/register',
   usersController.postRegister
