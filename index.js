@@ -1,5 +1,6 @@
 import express from 'express';
 import ProductsController from './src/controllers/product.controller.js';
+import UserController from './src/controllers/user.controller.js';
 import ejsLayouts from 'express-ejs-layouts';
 import path from 'path';
 import validationMiddleware from './src/middlewares/validation.middleware.js';
@@ -11,6 +12,7 @@ app.use(express.static('public'));
 
 const productsController =
   new ProductsController();
+const usersController = new UserController();
 
 app.use(ejsLayouts);
 app.use(express.json());
@@ -21,6 +23,7 @@ app.set(
   path.join(path.resolve(), 'src', 'views')
 );
 
+app.get('/register', usersController.getRegister);
 app.get('/', productsController.getProducts);
 app.get(
   '/add-product',
