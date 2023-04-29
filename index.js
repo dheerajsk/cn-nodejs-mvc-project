@@ -14,7 +14,6 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(cookieParser());
-app.use(setLastVisit);
 app.use(
   session({
     secret: 'SecretKey',
@@ -47,6 +46,7 @@ app.post(
 );
 app.get(
   '/',
+  setLastVisit,
   auth,
   productsController.getProducts
 );
