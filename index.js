@@ -1,21 +1,12 @@
-import express from 'express';
-import ProductsController from "./src/controllers/product.controller.js";
-import ejsLayouts from 'express-ejs-layouts';
-import path from "path";
+import express from 'express'
+import ProductsController from './src/controllers/products.controller.js'
 
-const app = express();
-const productsController = new ProductsController();
+const server = express()
 
-app.use(ejsLayouts);
-app.use(express.json());
-app.set('view engine', 'ejs');
-app.set("views", path.join(path.resolve(),"src", "views"));
+// instance of ProductsController
+const productController = new ProductsController()
 
-app.get('/', productsController.getProducts);
-app.get('/add-product', productsController.getAddProduct);
-app.post('/', productsController.postAddProduct);
+server.use(express.static('src/views'))
+server.get('/', productController.getProducts)
 
-
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
+server.listen(3400)
