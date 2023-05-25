@@ -1,12 +1,12 @@
 import express from 'express'
-import ProductsController from './src/controllers/products.controller.js'
+import ProductController from './src/controllers/product.controller.js'
 
 const server = express()
 
-// instance of ProductsController
-const productController = new ProductsController()
+// create an instance of ProductController
+const productController = new ProductController()
+server.get('/', productController.getProducts)
 
 server.use(express.static('src/views'))
-server.get('/', productController.getProducts)
 
 server.listen(3400)
