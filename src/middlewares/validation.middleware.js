@@ -1,3 +1,7 @@
+// HoistedDeclaration => a function
+// Class
+// assignment expression
+
 const validateRequest = (req, res, next) => {
   // validate data
   const { name, price, imageUrl } = req.body;
